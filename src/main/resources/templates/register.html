@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+<div>
+  <div>
+    <form method="post" th:action="@{/register}" th:object="${userDTO}">
+      <h1>Sign Up</h1>
+
+      <div>
+        <label>Email</label>
+        <input type="text" name="email" th:value="*{email}" th:errorclass="is-invalid">
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="in-valid-feedback"></div>
+      </div>
+
+      <div>
+        <label>Password</label>
+        <input type="password" name="password" th:value="*{password}" th:errorclass="is-invalid">
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="in-valid-feedback"></div>
+      </div>
+      <div>
+        <label>Re-enter Password</label>
+        <input type="password" name="rpassword" th:value="*{rpassword}" th:errorclass="is-invalid">
+        <div th:if="${#fields.hasErrors('rpassword')}" th:errors="*{rpassword}" class="in-valid-feedback"></div>
+      </div>
+
+      <div>
+        <label>First name</label>
+        <input type="text" name="firstname" th:value="*{firstname}" th:errorclass="is-invalid">
+        <div th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" class="in-valid-feedback"></div>
+      </div>
+
+      <div>
+        <label>Last name</label>
+        <input type="text" name="lastname" th:value="*{lastname}" th:errorclass="is-invalid">
+        <div th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" class="in-valid-feedback"></div>
+      </div>
+
+      <div>
+        <button type="submit">
+          Create your account
+        </button>
+      </div>
+
+    </form>
+    <p>Already have an account? <a href="/login">Sign-In</a></p>
+  </div>
+</div>
+
+</body>
+</html>
